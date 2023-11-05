@@ -1,13 +1,19 @@
-'use client';
+'use client'
+
+import { useState } from 'react'
 
 export default function Home() {
+  
+  const [items, setItems] = useState(["one", "two", "three"])
 
   return (
     <div className="p-20">
       <ul>
-        <li className="border-b">One</li>
-        <li className="border-b"></li>
-        <li className="border-b"></li>
+        {items.map((item) => (
+          <li key={item} className='border-b'>
+            {item}
+          </li>
+        ))}
       </ul>
     </div>
 
