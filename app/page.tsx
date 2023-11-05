@@ -8,6 +8,11 @@ export default function Home() {
 
   return (
     <div className="p-20">
+      <div className='flex justify-between'>
+        <button className='border rounded px-2 py-1'>Remove</button>
+        <button className='border rounded px-2 py-1'>Add</button>
+      </div>
+
       <ul>
         {items.map((item) => (
           <li key={item} className='border-b'>
