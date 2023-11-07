@@ -28,9 +28,8 @@ export default function Home() {
         <button onClick={addItem} className='border rounded px-2 py-1'>Add</button>
       </div>
 
-      <ul 
-        className='mt-8 border rounded 
-         p-8'>
+      <ul className='mt-8 border rounded 
+         p-8 overflow-hidden'>
         <AnimatePresence initial={false} >
         {items.map((item) => (
           <motion.li 
@@ -38,6 +37,10 @@ export default function Home() {
             initial={{ opacity: 0 , height: 0}}
             animate={{ opacity: 1 , height: "auto"}}
             exit={{ opacity: 0, height: 0 }}
+            transition={{
+              opacity: { duration: 0.3 },
+              height: { duration: 0.4}
+             }}
           >
            <div className='flex items-center justify-between
            py-2 border-b'>
@@ -52,6 +55,12 @@ export default function Home() {
         ))} 
         </AnimatePresence>
       </ul>
+
+      <div className='mt-8'>
+        <p>
+          *Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati aperiam provident facilis optio excepturi. Rem, nemo ducimus. Ullam placeat assumenda incidunt cumque, quaerat ea perspiciatis atque cum dolore natus quidem!
+        </p>
+      </div>
     </div>
 
   )
