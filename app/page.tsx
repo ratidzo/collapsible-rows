@@ -28,7 +28,26 @@ export default function Home() {
         <button onClick={addItem} className='border rounded px-2 py-1'>Add</button>
       </div>
 
-      <ul className='mt-8 border rounded 
+      <table className='border w-full'>
+        <thead>
+          <tr>
+            <th>Col 1</th>
+            <th>Col 2</th>
+            <th>Col 3</th>
+          </tr>
+        </thead>
+        <tbody>
+          {items.map((item) => (
+            <tr>
+              <td>1: item {item}</td>
+              <td>2: item {item}</td>
+              <td>3: item {item}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      {/* <ul className='mt-8 border rounded 
          p-8 overflow-hidden'>
         <AnimatePresence initial={false} >
         {items.map((item) => (
@@ -54,7 +73,7 @@ export default function Home() {
           </motion.li>
         ))} 
         </AnimatePresence>
-      </ul>
+      </ul> */}
 
       <div className='mt-8'>
         <p>
