@@ -28,7 +28,7 @@ export default function Home() {
         <button onClick={addItem} className='border rounded px-2 py-1'>Add</button>
       </div>
 
-      <table className='mt-8 border w-full'>
+      <table className='mt-8 w-full'>
         <thead>
           <tr>
             <th>Col 1</th>
@@ -39,19 +39,7 @@ export default function Home() {
         <tbody>
           <AnimatePresence>
           {items.map((item) => (
-            <motion.tr
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            >
-              <td>1: item {item}</td>
-              <td>2: item {item}</td>
-              <td className='text-center'>
-                <button onClick={() => removeItem(item)} className='w-8 h-8 border rounded'>
-                  &times;
-                </button>
-              </td>
-            </motion.tr>
+            <TR key={item} item={item} removeItem={removeItem} />
           ))}
           </AnimatePresence>
         </tbody>
@@ -85,12 +73,36 @@ export default function Home() {
         </AnimatePresence>
       </ul> */}
 
-      <div className='mt-8'>
+      {/* <div className='mt-8'>
         <p>
           *Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati aperiam provident facilis optio excepturi. Rem, nemo ducimus. Ullam placeat assumenda incidunt cumque, quaerat ea perspiciatis atque cum dolore natus quidem!
         </p>
-      </div>
+      </div> */}
     </div>
 
+  )
+}
+
+function TR({ item, removeItem }) {
+
+  return (
+    <motion.tr
+            key={item}
+            layout
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{
+              opacity: 0,
+              position: "absolute"
+            }}
+            >
+              <td>1: item {item}</td>
+              <td>2: item {item}</td>
+              <td className='text-center'>
+                <button onClick={() => removeItem(item)} className='w-8 h-8 border rounded'>
+                  &times;
+                </button>
+              </td>
+            </motion.tr>
   )
 }
