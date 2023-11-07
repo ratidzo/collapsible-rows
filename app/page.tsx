@@ -28,7 +28,7 @@ export default function Home() {
         <button onClick={addItem} className='border rounded px-2 py-1'>Add</button>
       </div>
 
-      <table className='border w-full'>
+      <table className='mt-8 border w-full'>
         <thead>
           <tr>
             <th>Col 1</th>
