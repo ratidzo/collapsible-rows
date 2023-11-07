@@ -28,23 +28,26 @@ export default function Home() {
         <button onClick={addItem} className='border rounded px-2 py-1'>Add</button>
       </div>
 
-      <ul className='mt-8 border rounded p-8'>
-        <AnimatePresence>
+      <ul 
+        className='mt-8 border rounded 
+         p-8'>
+        <AnimatePresence initial={false} >
         {items.map((item) => (
-          <motion.li key={item}
-          layout
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          
-           
-          className='flex items-center justify-between border-b py-2'>
-            <span>Item {item}</span>
-            <button onClick={() => removeItem(item)}
-             className='border rounded px-2 py-1
+          <motion.li 
+            key={item}
+            initial={{ opacity: 0 , height: 0}}
+            animate={{ opacity: 1 , height: "auto"}}
+            exit={{ opacity: 0, height: 0 }}
+          >
+           <div className='flex items-center justify-between
+           py-2 border-b'>
+             <span>Item {item}</span>
+             <button onClick={() => removeItem(item)}
+             className='border rounded
              w-8 h-8 '>
               &times;
             </button>
+           </div>
           </motion.li>
         ))} 
         </AnimatePresence>
