@@ -94,6 +94,7 @@ function TR({ item, removeItem }) {
             exit={{
               opacity: 0
             }}
+            transition={{ opacity: {duration: .2} }}
             style={{
               position: isPresent ? "relative" : "absolute",
               display: isPresent ? "table-row" : "flex",
