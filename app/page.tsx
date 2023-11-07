@@ -36,7 +36,7 @@ export default function Home() {
             <th>Col 3</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className='relative'>
           <AnimatePresence>
           {items.map((item) => (
             <TR key={item} item={item} removeItem={removeItem} />
@@ -95,12 +95,15 @@ function TR({ item, removeItem }) {
               opacity: 0
             }}
             style={{
-              position: isPresent ? "relative" : "absolute"
+              position: isPresent ? "relative" : "absolute",
+              display: isPresent ? "table-row" : "flex",
+              alignItems: isPresent ? "": "center"
             }}
+            className="w-full flex"
             >
-              <td>1: item {item}</td>
-              <td>2: item {item}</td>
-              <td className='text-center'>
+              <td className='w-1/3'>1: item {item}</td>
+              <td className='w-1/3'>2: item {item}</td>
+              <td className='w-1/3 text-center'>
                 <button onClick={() => removeItem(item)} className='w-8 h-8 border rounded'>
                   &times;
                 </button>
