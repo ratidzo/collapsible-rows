@@ -41,7 +41,11 @@ export default function Home() {
             <tr>
               <td>1: item {item}</td>
               <td>2: item {item}</td>
-              <td>3: item {item}</td>
+              <td className='text-center'>
+                <button onClick={() => removeItem(item)} className='w-8 h-8 border rounded'>
+                  &times;
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
