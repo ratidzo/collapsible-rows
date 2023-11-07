@@ -37,8 +37,13 @@ export default function Home() {
           </tr>
         </thead>
         <tbody>
+          <AnimatePresence>
           {items.map((item) => (
-            <tr>
+            <motion.tr
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            >
               <td>1: item {item}</td>
               <td>2: item {item}</td>
               <td className='text-center'>
@@ -46,8 +51,9 @@ export default function Home() {
                   &times;
                 </button>
               </td>
-            </tr>
+            </motion.tr>
           ))}
+          </AnimatePresence>
         </tbody>
       </table>
 
